@@ -1,5 +1,4 @@
 import datetime
-import ipdb
 
 from django.test import TestCase
 from django.utils import timezone
@@ -26,7 +25,6 @@ class QuestionModelTests(TestCase):
 
 
 def create_question(question_text, days):
-    # ipdb.set_trace()
     published_date = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=published_date)
 

@@ -33,8 +33,8 @@ class Query(graphene.ObjectType):
 
 class VoteMutation(graphene.Mutation):
     class Arguments:
-        question_id = graphene.ID()
-        choice_id = graphene.ID()
+        question_id = graphene.ID(required=True)
+        choice_id = graphene.ID(required=True)
 
     question = graphene.Field(QuestionType)
     choice = graphene.Field(ChoiceType)

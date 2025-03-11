@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "graphene_django",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -130,9 +132,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-
 GRAPHENE = {"SCHEMA": "polls.schema.schema"}
 
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:5173"]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 

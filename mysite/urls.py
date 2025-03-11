@@ -17,15 +17,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 
 from debug_toolbar.toolbar import debug_toolbar_urls
 from graphene_django.views import GraphQLView
 
 urlpatterns = [
-    path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
-    path("graphql", GraphQLView.as_view(graphiql=True)),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
 
 if not settings.TESTING:
